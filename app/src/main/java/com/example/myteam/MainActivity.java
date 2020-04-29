@@ -28,8 +28,8 @@ private int SLEEP_TIMER=3;
          }catch(InterruptedException e){
              e.printStackTrace();
          }
-        // Intent intent =new Intent(MainActivity.this,LoginActivity.class);
-        // startActivity(intent);
+         Intent intent =new Intent(MainActivity.this,LoginActivity.class);
+         startActivity(intent);
          MainActivity.this.finish();
 
         }
