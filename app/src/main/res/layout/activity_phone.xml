@@ -13,12 +13,11 @@
         android:background="@android:color/holo_green_light">
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/pa" />
+            android:id="@+id/imageView2"
+            android:layout_width="400dp"
+            android:layout_height="500dp"
+            app:srcCompat="@drawable/ph" />
     </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,24 +41,24 @@
             android:paddingRight="40dp">
 
             <EditText
-                android:id="@+id/emailreset"
+                android:id="@+id/num"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@drawable/shape_edit_text"
-                android:hint="Email"
+                android:hint="Phone Number"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark" />
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/otpnum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10mm"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/shape_button_enable"
-                android:hint="Reset"
+                android:hint="Get OTP"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
