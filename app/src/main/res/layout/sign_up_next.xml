@@ -21,7 +21,7 @@
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
-            android:src="@drawable/download">
+            android:src="@drawable/far">
 
         </ImageView>
     </LinearLayout>
@@ -49,6 +49,7 @@
             android:background="@drawable/edittext_big">
 
             <EditText
+                android:id="@+id/et_otpNumber"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edittext_big"

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class sign_up_next extends AppCompatActivity {
-    EditText et_otpNumber;
+    private EditText et_otpNumber;
     private TextView otpVerification;
     private EditText enterOtp;
     private TextView resendOtp;

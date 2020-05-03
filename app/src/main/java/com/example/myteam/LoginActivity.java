@@ -26,6 +26,5 @@ public class LoginActivity extends AppCompatActivity {
         pass=(EditText)findViewById(R.id.passwrd);
         login=(Button)findViewById(R.id.loginid);
         ftpass=(TextView)findViewById(R.id.fgtpass);
-
     }
 }
