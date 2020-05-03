@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -28,7 +27,7 @@ private int SLEEP_TIMER=3;
          }catch(InterruptedException e){
              e.printStackTrace();
          }
-         Intent intent =new Intent(MainActivity.this,LoginActivity.class);
+         Intent intent =new Intent(MainActivity.this, signup.class);
          startActivity(intent);
          MainActivity.this.finish();
 
