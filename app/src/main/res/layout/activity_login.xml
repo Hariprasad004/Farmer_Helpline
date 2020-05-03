@@ -48,6 +48,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@drawable/shape_edit_text"
+                android:inputType="textEmailAddress"
                 android:hint="Email"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark" />
@@ -59,8 +60,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="30dp"
                 android:background="@drawable/shape_edit_text"
-                android:hint="Password"
                 android:inputType="textPassword"
+                android:hint="Password"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark" />
 
