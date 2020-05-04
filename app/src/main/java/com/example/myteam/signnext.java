@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class sign_up_next extends AppCompatActivity {
+public class signnext extends AppCompatActivity {
     private EditText et_otpNumber;
     private TextView otpVerification;
     private EditText enterOtp;
@@ -18,7 +18,7 @@ public class sign_up_next extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_signup);
 
         requestSMSPermission();
 

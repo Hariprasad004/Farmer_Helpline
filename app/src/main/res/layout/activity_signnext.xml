@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DEE878"
-    tools:context=".sign_up_next"
+    tools:context=".signnext"
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
@@ -18,12 +18,12 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:src="@drawable/far">
-
-        </ImageView>
+            android:id="@+id/imageView5"
+            android:layout_width="300dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/otpf" />
     </LinearLayout>
 
     <LinearLayout
