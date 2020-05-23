@@ -3,6 +3,7 @@ package com.example.myteam;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,5 +27,15 @@ public class LoginActivity extends AppCompatActivity {
         pass=(EditText)findViewById(R.id.passwrd);
         login=(Button)findViewById(R.id.loginid);
         ftpass=(TextView)findViewById(R.id.fgtpass);
+
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = emailenter.getText().toString().trim();
+                String password = pass.getText().toString().trim();
+                String forget = ftpass.getText().toString().trim();
+            }
+        });
     }
 }
