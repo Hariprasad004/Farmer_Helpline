@@ -3,6 +3,7 @@ package com.example.myteam;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,6 +23,7 @@ private EditText email_txt;
 private EditText password_txt;
 private EditText confirmpass;
 private Button signup;
+ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,22 @@ private Button signup;
         password_txt = (EditText) findViewById(R.id.pass);
         confirmpass = (EditText) findViewById(R.id.confirm);
         signup = (Button) findViewById(R.id.signup);
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Initiatializw progress dailogue
+                progressDialog=new ProgressDialog(signActivity.this);
+                //show dialog
+                progressDialog.show();
+                //set content view
+                progressDialog.setContentView(R.layout.progress_dialog);
+                //set transparent background
+                progressDialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+            }
+        });
 
         final FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
@@ -76,5 +94,10 @@ private Button signup;
                     Toast.makeText(signActivity.this, "Password and confirm password doesn't match", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public void onBackPressed(){
+        //dismiss progress dialog
+        progressDialog.dismiss();
     }
 }
