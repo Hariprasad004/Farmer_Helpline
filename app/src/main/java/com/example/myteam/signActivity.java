@@ -34,23 +34,7 @@ ProgressDialog progressDialog;
         confirmpass = (EditText) findViewById(R.id.confirm);
         signup = (Button) findViewById(R.id.signup);
 
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Initiatializw progress dailogue
-                progressDialog=new ProgressDialog(signActivity.this);
-                //show dialog
-                progressDialog.show();
-                //set content view
-                progressDialog.setContentView(R.layout.progress_dialog);
-                //set transparent background
-                progressDialog.getWindow().setBackgroundDrawableResource(
-                        android.R.color.transparent
-                );
-            }
-        });
-
-        final FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        /*final FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,14 +63,22 @@ ProgressDialog progressDialog;
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(signActivity.this, "User successfully registered", Toast.LENGTH_SHORT).show();
+                                        //Initiatializw progress dailogue
+                                        progressDialog=new ProgressDialog(signActivity.this);
+                                        //show dialog
+                                        progressDialog.show();
+                                        //set content view
+                                        progressDialog.setContentView(R.layout.progress_dialog);
+                                        //set transparent background
+                                        progressDialog.getWindow().setBackgroundDrawableResource(
+                                                android.R.color.transparent
+                                        );
                                         Intent intent =new Intent(signActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                         signActivity.this.finish();
                                     } else {
                                         Toast.makeText(signActivity.this, "Aunthentication failed", Toast.LENGTH_SHORT).show();
                                     }
-
-                                    // ...
                                 }
                             });
                 }
@@ -94,10 +86,10 @@ ProgressDialog progressDialog;
                     Toast.makeText(signActivity.this, "Password and confirm password doesn't match", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-    @Override
-    public void onBackPressed(){
+    }*/
+    //@Override
+   // public void onBackPressed(){
         //dismiss progress dialog
-        progressDialog.dismiss();
+       // progressDialog.dismiss();
     }
 }
