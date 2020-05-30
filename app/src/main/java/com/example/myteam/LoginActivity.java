@@ -37,11 +37,6 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailenter.getText().toString().trim();
                 String password = pass.getText().toString().trim();
                 String forget = ftpass.getText().toString().trim();
-            }
-        });
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 //Initiatializw progress dailogue
                 progressDialog = new ProgressDialog(LoginActivity.this);
                 //show dialog

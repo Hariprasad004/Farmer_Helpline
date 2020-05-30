@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class submit_info extends AppCompatActivity {
     private EditText Name;
     private EditText number;
     private EditText Age;
     private EditText address;
+    private RadioButton farmer;
+    private RadioButton Lender;
+
     private Button submit;
 
     @Override
