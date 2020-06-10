@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,8 @@ private EditText email_txt;
 private EditText password_txt;
 private EditText confirmpass;
 private Button signup;
+private TextView al_login;
+private Button cphone;
 ProgressDialog progressDialog;
 
     @Override
@@ -33,6 +36,8 @@ ProgressDialog progressDialog;
         password_txt = (EditText) findViewById(R.id.pass);
         confirmpass = (EditText) findViewById(R.id.confirm);
         signup = (Button) findViewById(R.id.signup);
+        cphone=(Button)findViewById(R.id.cnphone);
+        al_login=(TextView)findViewById(R.id.allrdy_login);
 
         final FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
@@ -95,5 +100,23 @@ ProgressDialog progressDialog;
                 }
             }
         });
+        cphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(signActivity.this,phone.class);
+                startActivity(intent);
+                signActivity.this.finish();
+            }
+        });
+        al_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(signActivity.this,LoginActivity.class);
+                startActivity(intent);
+                signActivity.this.finish();
+            }
+        });
+
     }
+
 }

@@ -62,7 +62,9 @@
         android:background="@drawable/shape_button_enable"
         android:text="SIGN UP"
         android:textColor="@color/colorPrimaryDark" />
+
     <Button
+        android:id="@+id/cnemail"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
@@ -72,6 +74,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <Button
+        android:id="@+id/cnphone"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
@@ -79,7 +82,9 @@
         android:background="@drawable/shape_button_enable"
         android:text="CONTINUE WITH PHONE"
         android:textColor="@color/colorPrimaryDark" />
+
     <TextView
+        android:id="@+id/allrdy_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
