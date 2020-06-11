@@ -97,7 +97,13 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+        ftpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, fgpass.class);
+                startActivity(intent);
+                LoginActivity.this.finish();
+            }
+        });
     }
 }
-
-

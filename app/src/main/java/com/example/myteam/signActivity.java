@@ -87,11 +87,6 @@ ProgressDialog progressDialog;
                     Toast.makeText(signActivity.this, "Password length should be greater than 6", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                /*if(fAuth.getCurrentUser() != null){
-                    progressDialog.dismiss();
-                    Toast.makeText(signActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
-                    return;
-                }*/
                 if (password.equals(confpass)) {
                     fAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(signActivity.this, new OnCompleteListener<AuthResult>() {
@@ -129,9 +124,8 @@ ProgressDialog progressDialog;
         cphone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(signActivity.this, MainActivity.class);
+                Intent intent = new Intent(signActivity.this, phone.class);
                 startActivity(intent);
-                signActivity.this.finish();
             }
         });
         al_login.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +136,5 @@ ProgressDialog progressDialog;
                 signActivity.this.finish();
             }
         });
-
     }
-
 }

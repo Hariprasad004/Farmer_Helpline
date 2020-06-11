@@ -18,9 +18,9 @@
         </activity>
         <activity android:name=".signActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".fgpass" />
         <activity android:name=".phone" />
         <activity android:name=".signnext" />
-        <activity android:name=".forgetpass" />
         <activity android:name=".submit_info" />
     </application>
 
