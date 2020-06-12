@@ -38,6 +38,7 @@ ProgressDialog progressDialog;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
+        getSupportActionBar().setTitle("SIGNUP");
         email_txt = (EditText) findViewById(R.id.emails);
         password_txt = (EditText) findViewById(R.id.pass);
         confirmpass = (EditText) findViewById(R.id.confirm);

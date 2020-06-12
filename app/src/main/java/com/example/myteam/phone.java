@@ -19,6 +19,7 @@ public class phone extends AppCompatActivity {
         setContentView(R.layout.activity_phone);
         phonenum=(EditText)findViewById(R.id.phoneText);
         otp=(Button)findViewById(R.id.otpnum);
+        getSupportActionBar().setTitle("Phone");
         init();
 
 

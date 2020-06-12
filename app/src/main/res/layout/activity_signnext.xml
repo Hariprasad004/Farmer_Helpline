@@ -61,6 +61,17 @@
 
 
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="357dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_button_enable"
+            android:text="Submit"
+            android:textColor="@color/colorPrimaryDark" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,17 +15,21 @@ public class signnext extends AppCompatActivity {
     private EditText et_otpNumber;
     private TextView otpVerification;
     private EditText enterOtp;
+    private Button submit;
     private TextView resendOtp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
+        getSupportActionBar().setTitle("OTP Varification");
 
         requestSMSPermission();
 
 
         et_otpNumber = findViewById(R.id.et_otpNumber);
+        submit=findViewById(R.id.sub);
         new OTP_Receiver().setEditText(et_otpNumber);
+
 
     }
     private void requestSMSPermission(){

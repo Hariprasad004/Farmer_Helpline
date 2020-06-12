@@ -27,6 +27,7 @@ public class submit_info extends AppCompatActivity {
         Age=(EditText)findViewById(R.id.age);
         address=(EditText)findViewById(R.id.add);
         submit=(Button)findViewById(R.id.sub);
+        getSupportActionBar().setTitle("Details of User");
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

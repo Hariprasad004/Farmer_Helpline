@@ -57,12 +57,10 @@
             <Button
                 android:id="@+id/login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10mm"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
-                android:inputType="textPassword"
                 android:background="@drawable/shape_button_enable"
-                android:hint="Reset"
+                android:text="Reset"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>

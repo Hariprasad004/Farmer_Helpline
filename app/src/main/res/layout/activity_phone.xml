@@ -63,7 +63,7 @@
             android:layout_margin="10mm"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_button_enable"
-            android:hint="Get OTP"
+            android:text="Get OTP"
             android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
