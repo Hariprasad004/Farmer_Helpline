@@ -46,13 +46,6 @@
                     app:ccp_autoDetectCountry="true"
                     app:ccp_showNameCode="true" />
 
-                <EditText
-                    android:id="@+id/phoneText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone"
-                    android:inputType="phone"
-                    android:singleLine="true" />
             </LinearLayout>
         </RelativeLayout>
 
