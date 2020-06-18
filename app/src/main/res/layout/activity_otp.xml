@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DEE878"
-    tools:context=".signnext"
+    tools:context=".otp"
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
@@ -73,13 +73,14 @@
             android:textColor="@color/colorPrimaryDark" />
 
         <TextView
+            android:id="@+id/resend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resend OTP"
             android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text="Resend OTP"
             android:textAlignment="center"
-            android:textColor="#000"
-            android:gravity="center_horizontal" />
+            android:textColor="#000" />
 
 
     </LinearLayout>

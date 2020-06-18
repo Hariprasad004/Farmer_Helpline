@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
 
 public class phone extends AppCompatActivity {
@@ -22,34 +21,21 @@ public class phone extends AppCompatActivity {
         phonenum=(EditText)findViewById(R.id.phoneText);
         otp=(Button)findViewById(R.id.otpnum);
         ccode=findViewById(R.id.ccp);
-        getSupportActionBar().setTitle("Phone");
+        getSupportActionBar().setTitle("Phone Verification");
         otp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phonenumber = phonenum.getText().toString().trim();
                 if(!phonenumber.isEmpty() && phonenumber.length()==10){
-                    //if(checkvalid(phonenumber)){
-                        String pNo=ccode.getSelectedCountryCode()+phonenumber;
-                        Intent intent = new Intent(getApplicationContext(), signnext.class);
+                        String pNo="+"+ccode.getSelectedCountryCode()+phonenumber;
+                        Intent intent = new Intent(phone.this, com.example.myteam.otp.class);
                         intent.putExtra("PhoneNo",pNo);
                         startActivity(intent);
-                    //}
-                    //else
-                      //  phonenum.setError("Phone number is not valid");
                 }
                 else{
                     phonenum.setError("Phone number is not valid");
                 }
             }
         });
-    }
-    private boolean checkvalid(String p) {
-       try{
-           int a=Integer.parseInt(p);
-           return true;
-       }
-       catch (Exception e){
-           return false;
-       }
     }
 }
