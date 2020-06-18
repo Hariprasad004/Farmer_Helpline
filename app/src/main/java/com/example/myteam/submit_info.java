@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -31,6 +33,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.hbb20.CountryCodePicker;
 
 import java.io.IOException;
 import java.util.List;
@@ -42,33 +46,50 @@ public class submit_info extends AppCompatActivity {
     private EditText number;
     private EditText Age;
     private EditText address;
+    private RadioGroup radioGroup;
     private RadioButton radButton;
-
+    private CountryCodePicker ccode;
     private Button submit;
     private FusedLocationProviderClient fusedLocationProviderClient;
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_info);
         Name = (EditText) findViewById(R.id.name);
-        number = (EditText) findViewById(R.id.ph);
+        number = (EditText) findViewById(R.id.phoneText);
         Age = (EditText) findViewById(R.id.age);
         address = (EditText) findViewById(R.id.add);
         submit = (Button) findViewById(R.id.sub);
-        //radButton = (RadioButton)findViewById(R.id.radbtn);
+        ccode=findViewById(R.id.ccp);
+        radioGroup = findViewById(R.id.radbtn);
         getSupportActionBar().setTitle("Details of the User");
 
         //Initialize fusedLocationProviderClient
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLocation();
+
+        final FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog = new ProgressDialog(submit_info.this);
+                //show dialog
+                progressDialog.show();
+                //set content view
+                progressDialog.setContentView(R.layout.progress_dialog);
+                //set transparent background
+                progressDialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
                 String NAme = Name.getText().toString().trim();
                 String num = number.getText().toString().trim();
                 String person_age = Age.getText().toString().trim();
                 String person_adress = address.getText().toString().trim();
+                String code = ccode.getSelectedCountryCode();
+                String PNum = "+"+code+num;
 
             }
         });
