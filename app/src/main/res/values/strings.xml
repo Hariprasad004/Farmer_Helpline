@@ -23,4 +23,15 @@
     <string name="title_activity_main123">Main123</string>
     <string name="profile_activity">profile_activity</string>
     <string name="textview">TextView</string>
+    <string name="about_string">About</string>
+    <string name="parargraph_string">parargraph</string>
+    <string name="paragraph">This app helps the farmer and lender to get connected with each other .After registering ,farmer can view whether the lender is available in nearby places as well as globally . Then farmer can get the deatails of the lender that he chooses and contact him directly.\n\n
+    <b>Contact us</b>
+    \n\n
+    If you have any queries or suggestions about this app, contact us at \nfarmerlender20@gmail.com
+    \n\n
+    version           1.0</string>
+    <string name="guidelines">The main back bone of the country is agriculture. Development of agriculture in the country will develop economic conditions of the country. This app is to help agriculturist to get financial support in most easy way. There will be a sign in and sign up page for the farmer and lender .User has to fill the details. There will a OTP verification for the user .Farmer can search for lenders near by and globally and he can contact him.\n
+   Farmer help line is one of the app which helps in connecting money lender and the farmer digitally through phone.When farmer gets problems due to natural disasters he can get help from organizations, persons or NGO’s. This app can also help in saving the lives of the farmer’s.\n
+    The challenges before Indian Agriculture are immense. This sector needs to grow at a faster rate than in the past to allow for higher per capital income and consumption. The main function of this project is that farmers can directly contact the money lender and share their locations in easy way. This app is implemented using Android studio and firebase tool.</string>
 </resources>
