@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListOfUsers"></activity>
+        <activity android:name=".near_by_Req"></activity>
+        <activity android:name=".ListOfUsers" />
         <activity
             android:name=".menu"
             android:label="menuActivity"
