@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".near_by_Req"></activity>
+        <activity android:name=".IdActivity"></activity>
+        <activity android:name=".resetPass" />
+        <activity android:name=".noLend" />
+        <activity android:name=".near_by_Req" />
         <activity android:name=".ListOfUsers" />
         <activity
             android:name=".menu"
