@@ -75,76 +75,73 @@ public class submit_info extends AppCompatActivity {
         requestPermission();
         final FirebaseAuth fAuth = FirebaseAuth.getInstance();
         final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                progressDialog = new ProgressDialog(submit_info.this);
-                //show dialog
-                progressDialog.show();
-                //set content view
-                progressDialog.setContentView(R.layout.progress_dialog);
-                //set transparent background
-                progressDialog.getWindow().setBackgroundDrawableResource(
-                        android.R.color.transparent
-                );
-                int radioId = radioGroup.getCheckedRadioButtonId();
-                String NAme = Name.getText().toString().trim();
-                String num = number.getText().toString().trim();
-                String person_age = Age.getText().toString().trim();
-                String person_address = address.getText().toString().trim();
-                String code = ccode.getSelectedCountryCode();
-                String PNum = "+" + code + num;
-                userId = fAuth.getCurrentUser().getUid();
-                if (NAme.isEmpty()) {
-                    progressDialog.dismiss();
-                    Name.setError("Enter the name");
-                    return;
-                }
-                if (num.length() != 10) {
-                    progressDialog.dismiss();
-                    number.setError("Enter the valid phone number");
-                    return;
-                } else if (person_age.isEmpty()) {
-                    progressDialog.dismiss();
-                    Age.setError("Enter the age");
-                    return;
-                } else if (radioId == -1) {
-                    progressDialog.dismiss();
-                    ;
-                    Toast.makeText(submit_info.this, "Select whether lender or farmer", Toast.LENGTH_SHORT).show();
-                    return;
-                } else if (person_address.isEmpty()) {
-                    progressDialog.dismiss();
-                    address.setError("Enter the address with pincode");
-                    return;
-                } else {
-                    addr = false;
-                    requestPermission();
-                    radButton = findViewById(radioId);
-                    String farmlend = radButton.getText().toString();
-                    DocumentReference documentReference = fStore.collection("User").document(userId);
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("Name", NAme);
-                    user.put("Phone_Number", PNum);
-                    user.put("Age", person_age);
-                    user.put("FarmLend", farmlend);
-                    user.put("Latitude", final_latitude);
-                    user.put("Longitude", final_longitude);
-                    user.put("Address", person_address);
-                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            progressDialog.dismiss();
-                            Toast.makeText(submit_info.this, "User profile is created", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "User profile is created");
-                            Intent intent = new Intent(submit_info.this, MainActivity.class);
-                            startActivity(intent);
-                            submit_info.this.finish();
-                        }
-                    });
-                }
-
+        submit.setOnClickListener(v -> {
+            progressDialog = new ProgressDialog(submit_info.this);
+            //show dialog
+            progressDialog.show();
+            //set content view
+            progressDialog.setContentView(R.layout.progress_dialog);
+            //set transparent background
+            progressDialog.getWindow().setBackgroundDrawableResource(
+                    android.R.color.transparent
+            );
+            int radioId = radioGroup.getCheckedRadioButtonId();
+            String NAme = Name.getText().toString().trim();
+            String num = number.getText().toString().trim();
+            String person_age = Age.getText().toString().trim();
+            String person_address = address.getText().toString().trim();
+            String code = ccode.getSelectedCountryCode();
+            String PNum = "+" + code + num;
+            userId = fAuth.getCurrentUser().getUid();
+            if (NAme.isEmpty()) {
+                progressDialog.dismiss();
+                Name.setError("Enter the name");
+                return;
             }
+            if (num.length() != 10) {
+                progressDialog.dismiss();
+                number.setError("Enter the valid phone number");
+                return;
+            } else if (person_age.isEmpty()) {
+                progressDialog.dismiss();
+                Age.setError("Enter the age");
+                return;
+            } else if (radioId == -1) {
+                progressDialog.dismiss();
+                ;
+                Toast.makeText(submit_info.this, "Select whether lender or farmer", Toast.LENGTH_SHORT).show();
+                return;
+            } else if (person_address.isEmpty()) {
+                progressDialog.dismiss();
+                address.setError("Enter the address with pincode");
+                return;
+            } else {
+                addr = false;
+                requestPermission();
+                radButton = findViewById(radioId);
+                String farmlend = radButton.getText().toString();
+                DocumentReference documentReference = fStore.collection("User").document(userId);
+                Map<String, Object> user = new HashMap<>();
+                user.put("Name", NAme);
+                user.put("Phone_Number", PNum);
+                user.put("Age", person_age);
+                user.put("FarmLend", farmlend);
+                user.put("Latitude", final_latitude);
+                user.put("Longitude", final_longitude);
+                user.put("Address", person_address);
+                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        progressDialog.dismiss();
+                        Toast.makeText(submit_info.this, "User profile is created", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "User profile is created");
+                        Intent intent = new Intent(submit_info.this, menu.class);
+                        startActivity(intent);
+                        submit_info.this.finish();
+                    }
+                });
+            }
+
         });
     }
 

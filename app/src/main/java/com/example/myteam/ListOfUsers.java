@@ -10,19 +10,18 @@ import android.widget.ListView;
 
 public class ListOfUsers extends AppCompatActivity {
     String items[]= new String[] {"user1","user2","user3"};
-
+    private String dec;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_users);
+        dec = getIntent().getStringExtra("Decision");
+        items[3]=dec;
         ListView listView=(ListView) findViewById(R.id.ListView);
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.activity_list_item,items);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        listView.setOnItemClickListener((parent, view, position, id) -> {
 
-            }
         });
 
     }

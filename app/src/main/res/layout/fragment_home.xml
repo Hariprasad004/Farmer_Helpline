@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/profile.image"
+        android:layout_toRightOf="@+id/profileimage"
         android:includeFontPadding="false"
         android:textStyle="bold"
         android:text="This app is designed to help farmers"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/profile.image"
+        android:layout_toRightOf="@+id/profileimage"
         android:includeFontPadding="false"
         android:text="It is mainly used to improve the financial problen of farmers.By using this app farmes can find the nearby lenders.
 Some farmers dont get good return on sales,so they can find a donars and sold to them as per there  requirements."

@@ -23,7 +23,7 @@ public class GuidelineFragment extends Fragment {
         slideshowViewModel =
                 ViewModelProviders.of(this).get(GuidelineViewModel.class);
         View root = inflater.inflate(R.layout.fragment_guideline, container, false);
-        final TextView textView = root.findViewById(R.id.text_guideline);
+        final TextView textView = root.findViewById(R.id.below_guidelines);
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

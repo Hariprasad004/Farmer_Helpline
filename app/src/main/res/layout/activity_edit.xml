@@ -19,7 +19,7 @@
             android:background="#E19B43">
 
             <ImageView
-                android:id="@+id/profile.image"
+                android:id="@+id/profileimage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/flag_wallis_and_futuna"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bhavya"
                 android:textSize="20sp"
-                android:layout_toRightOf="@+id/profile.image"
+                android:layout_toRightOf="@+id/profileimage"
                 android:layout_centerVertical="true"
                 android:includeFontPadding="false"
                 android:layout_marginLeft="10dp"/>

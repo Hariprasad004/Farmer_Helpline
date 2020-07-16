@@ -20,21 +20,24 @@
             android:background="#E19B43">
 
             <ImageView
-                android:id="@+id/profile.image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/flag_wallis_and_futuna"
-                android:layout_centerVertical="true"/>
+                android:id="@+id/profileimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="150dp"
+                android:src="@drawable/flag_wallis_and_futuna" />
+
             <TextView
                 android:id="@+id/full_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bhavya"
-                android:textSize="20sp"
-                android:layout_toRightOf="@+id/profile.image"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="150dp"
+                android:layout_toRightOf="@+id/profileimage"
                 android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"/>
+                android:text="Bhavya"
+                android:textSize="30sp" />
 
 
         </RelativeLayout>
