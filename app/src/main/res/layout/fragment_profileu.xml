@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9BF83A"
+    android:orientation="vertical"
+    tools:context=".Profileu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:padding="20dp"
+            android:background="#E19B43">
+
+            <ImageView
+                android:id="@+id/profile.image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/flag_wallis_and_futuna"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bhavya"
+                android:textSize="20sp"
+                android:layout_toRightOf="@+id/profile.image"
+                android:layout_centerVertical="true"
+                android:includeFontPadding="false"
+                android:layout_marginLeft="10dp"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+
+
+
+
+            <TextView
+                android:id="@+id/na"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="10dp"
+                android:textColor="#ED000407"
+                android:text="Bhavya"/>
+
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:drawableLeft="@drawable/ic_baseline_today_24"
+                android:textColor="#ED000407"
+                android:drawablePadding="10dp"
+                android:text="19"/>
+
+
+            <TextView
+                android:id="@+id/ph_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawablePadding="10dp"
+                android:textColor="#ED000407"
+                android:text="12345678"/>
+
+
+            // android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:drawableLeft="@drawable/ic_baseline_visibility_off_24"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            android:text="ammu123"/>//
+
+            <TextView
+                android:id="@+id/add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:drawableLeft="@drawable/ic_baseline_add_location_24"
+                android:drawablePadding="10dp"
+                android:textColor="#ED000407"
+                android:text="Address"/>
+
+
+            <Button
+                android:id="@+id/edb"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Edit"
+                android:background="@drawable/shape_button_enable"
+                android:textColor="@color/colorPrimaryDark" />
+            <Button
+                android:id="@+id/edc"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="Change password"
+                android:background="@drawable/shape_button_enable"
+                android:textColor="@color/colorPrimaryDark" />
+            <Button
+                android:id="@+id/edr"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="Request"
+                android:background="@drawable/shape_button_enable"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_profile"
-        android:name="com.example.myteam.ui.profile.ProfileFragment"
-        android:label="Profie"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/nav_profileu"
+        android:name="com.example.myteam.Profileu"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profileu" />
 
 
     <fragment
@@ -41,4 +41,5 @@
         android:name="com.example.myteam.logoutFragment"
         android:label="Logout"
         tools:layout="@layout/fragment_logout" />
+
 </navigation>
