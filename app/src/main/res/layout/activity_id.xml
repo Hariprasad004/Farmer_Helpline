@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#937AFD"
     android:orientation="vertical"
-    tools:context=".IdActivity">
+    tools:context=".Id">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,3 +71,4 @@
 
     </LinearLayout>
 </ScrollView>
+

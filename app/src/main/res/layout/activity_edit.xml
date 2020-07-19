@@ -154,9 +154,7 @@
                 android:background="@drawable/shape_button_enable"
                 android:textColor="@color/colorPrimaryDark" />
 
-
         </LinearLayout>
-
-    </LinearLayout>
+        </LinearLayout>
 
 </ScrollView>

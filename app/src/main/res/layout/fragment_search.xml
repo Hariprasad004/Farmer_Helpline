@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#81E809"
-    tools:context=".SearchFragment">
+    tools:context=".Search">
 
-    <!-- TODO: Update blank fragment layout -->
+
+        <!-- TODO: Update blank fragment layout -->
 
 
         <LinearLayout
@@ -18,30 +19,30 @@
             android:orientation="vertical">
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter the id"
-            android:layout_marginBottom="10dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the id"
+                android:layout_marginBottom="10dp">
 
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_person_24"
-            android:drawablePadding="10dp"
-            android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-    <Button
-        android:id="@+id/subid"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/shape_button_enable"
-        android:text="SUBMIT"
-        android:textColor="@color/colorPrimaryDark" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:drawablePadding="10dp"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/subid"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_button_enable"
+                android:text="SUBMIT"
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
 
 
-</RelativeLayout>
+    </RelativeLayout>

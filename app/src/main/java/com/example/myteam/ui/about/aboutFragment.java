@@ -1,4 +1,4 @@
-package com.example.myteam.ui.guideline;
+package com.example.myteam.ui.about;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myteam.R;
 
-public class GuidelineFragment extends Fragment {
+public class aboutFragment extends Fragment {
 
-    private GuidelineViewModel slideshowViewModel;
+    private aboutViewModel aboutViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(GuidelineViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_guideline, container, false);
-        final TextView textView = root.findViewById(R.id.below_guidelines);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        aboutViewModel =
+                ViewModelProviders.of(this).get(aboutViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_about, container, false);
+        final TextView textView = root.findViewById(R.id.nav_about);
+        aboutViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

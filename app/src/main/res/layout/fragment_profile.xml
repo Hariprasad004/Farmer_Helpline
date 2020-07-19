@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#9BF83A"
     android:orientation="vertical"
-    tools:context=".Profileu">
+    tools:context=".Profile">
 
     <LinearLayout
         android:layout_width="match_parent"

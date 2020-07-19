@@ -9,10 +9,9 @@
             android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_profileu"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_baseline_contact_mail_24"
             android:title="Profile" />
-
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_baseline_search_24"
@@ -22,7 +21,6 @@
             android:id="@+id/nav_guideline"
             android:icon="@drawable/ic_baseline_change_history_24"
             android:title="Guideline" />
-
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_baseline_insert_emoticon_24"
@@ -31,7 +29,5 @@
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_baseline_power_settings_new_24"
             android:title="Logout" />
-
-
     </group>
 </menu>

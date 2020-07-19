@@ -11,35 +11,35 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/nav_profileu"
-        android:name="com.example.myteam.Profileu"
-        android:label="Profile"
-        tools:layout="@layout/fragment_profileu" />
 
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.myteam.Profile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.myteam.SearchFragment"
+        android:name="com.example.myteam.Search"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
 
-
     <fragment
         android:id="@+id/nav_guideline"
-        android:name="com.example.myteam.ui.guideline.GuidelineFragment"
+        android:name="com.example.myteam.ui.guideline.guidelineFragment"
         android:label="Guideline"
         tools:layout="@layout/fragment_guideline" />
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.example.myteam.aboutFragment"
+        android:name="com.example.myteam.ui.about.aboutFragment"
         android:label="About"
         tools:layout="@layout/fragment_about" />
+
+
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.example.myteam.logoutFragment"
+        android:name="com.example.myteam.Logout"
         android:label="Logout"
         tools:layout="@layout/fragment_logout" />
-
 </navigation>
