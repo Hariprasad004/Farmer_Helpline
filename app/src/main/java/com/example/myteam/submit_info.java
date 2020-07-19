@@ -135,7 +135,7 @@ public class submit_info extends AppCompatActivity {
                         progressDialog.dismiss();
                         Toast.makeText(submit_info.this, "User profile is created", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "User profile is created");
-                        Intent intent = new Intent(submit_info.this, menu.class);
+                        Intent intent = new Intent(submit_info.this, MainActivity.class);
                         startActivity(intent);
                         submit_info.this.finish();
                     }
