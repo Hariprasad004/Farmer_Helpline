@@ -23,21 +23,21 @@
     <string name="textview">TextView</string>
     <string name="about_string">About</string>
     <string name="parargraph_string">parargraph</string>
-    <string name="paragraph">This app is to help agriculturist to get financial support in most easy way.It help you to contact the lenders .If you want to search nearby lenders then you just need to click on the search nearby lenders button.Then you will get the list of near by lenders.If you want to search the lenders globally you can search them by entering their Id. This app uses the location of the user. So, user can get the list of nearby lenders easily. Then he can contact any of the lender in the list.\n\n
+    <string name="paragraph">This app is to help agriculturist to get financial support in most easy way.It help you to contact the lenders .If you want to search nearby lenders then you just need to click on the search nearby lenders button.Then you will get the list of near by lenders.If you want to search the lenders globally you can search them by entering their Id. This app uses the location of the user. So, user can get the list of nearby lenders easily. Then he can contact any of the lender in the list.\n
 
     version           1.0
     \n\n
-    Devolopped by\n
+    Devolopped by:\n
     Mr.Hariprasad\n
     Ms.Bhavya K\n
     Mr.Sanketh D Bangera
         \n\n
-        <b>Contact us</b>
-    \n\n
+        <b>Contact us:</b>
+    \n
     If you have any queries or suggestions about this app, contact us at \nfarmerlender20@gmail.com
     \n\n
     </string>
-    <string name="guidelines"> This app is to help agriculturist to get financial support in most easy way. There will be a sign in and sign up page for the farmer and lender .User has to fill the details. There will a OTP verification for the user.The farmer can search the nearby lenders just by clicking on the search nearby lenders button . This app uses the location of the user .So he will get the list of nearby lenders easily.If the user want to search the lenders globally . Then, he can search them by entering their Id.\n
+    <string name="guidelines"> This app is to help agriculturist to get financial support in most easy way. There will be a sign in and sign up page for the farmer and lender .User has to fill the details. There will a OTP verification for the user.The farmer can search the nearby lenders just by clicking on the search nearby lenders button . This app uses the location of the user .So he will get the list of nearby lenders easily.If the user want to search the lenders globally . Then, he can search them by entering their Id.You will get charged for sending the sms.\n
    This  is one of the app which helps in connecting money lender and the farmer digitally through phone. This app can also help in saving the lives of the farmer’s.\n
      The main function of this project is that farmers can directly contact the money lender and share their locations in easy way.</string>
     <!-- TODO: Remove or change this placeholder text -->

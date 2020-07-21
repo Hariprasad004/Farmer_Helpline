@@ -7,15 +7,6 @@
     android:background="#81E809"
     tools:context=".ui.about.aboutFragment">
 
-    <TextView
-        android:id="@+id/guidelines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/padding"
-        android:text="@string/about_string"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/below_guidelines"
