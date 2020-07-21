@@ -20,11 +20,11 @@ public class guidelineFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        guidelineViewModel =
-                ViewModelProviders.of(this).get(guidelineViewModel.class);
+//        guidelineViewModel =
+//                ViewModelProviders.of(this).get(guidelineViewModel.class);
         View root = inflater.inflate(R.layout.fragment_guideline, container, false);
-        final TextView textView = root.findViewById(R.id.nav_guideline);
-        guidelineViewModel.getText().observe(getViewLifecycleOwner(), s -> textView.setText(s));
+//        final TextView textView = root.findViewById(R.id.nav_guideline);
+//        guidelineViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 }

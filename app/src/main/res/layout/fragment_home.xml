@@ -35,7 +35,6 @@
 
 
         <ImageView
-            android:id="@+id/imageView1"
             android:layout_width="144dp"
             android:layout_height="94dp"
             android:layout_margin="30dp"
@@ -57,7 +56,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/profileimage"
         android:includeFontPadding="false"
-        android:text="It is mainly used to improve the financial problen of farmers.By using this app farmes can find the nearby lenders.
+        android:text="It is mainly used to improve the financial problen of farmers.By using this app farmers can find the nearby lenders.
 Some farmers dont get good return on sales,so they can find a donars and sold to them as per there  requirements."
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />

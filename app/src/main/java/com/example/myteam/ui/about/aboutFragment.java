@@ -20,11 +20,11 @@ public class aboutFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        aboutViewModel =
-                ViewModelProviders.of(this).get(aboutViewModel.class);
+//        aboutViewModel =
+//                ViewModelProviders.of(this).get(aboutViewModel.class);
         View root = inflater.inflate(R.layout.fragment_about, container, false);
-        final TextView textView = root.findViewById(R.id.nav_about);
-        aboutViewModel.getText().observe(getViewLifecycleOwner(), s -> textView.setText(s));
+//        final TextView textView = root.findViewById(R.id.nav_about);
+//        aboutViewModel.getText().observe(getViewLifecycleOwner(), s -> textView.setText(s));
         return root;
     }
 }
