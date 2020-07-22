@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText emailenter;
@@ -27,12 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //try {
-            //this.getActionBar().hide();
-        //} catch (Exception e) {
-
-        //}
         setContentView(R.layout.activity_login);
         emailenter = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.passwrd);
@@ -41,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Login");
 
         final FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
                 );
                 String email = emailenter.getText().toString().trim();
                 String password = pass.getText().toString().trim();
-                String forget = ftpass.getText().toString().trim();
                 if (TextUtils.isEmpty((email))) {
                     progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this, "Please enter email", Toast.LENGTH_SHORT).show();
@@ -79,10 +75,23 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             if(fAuth.getCurrentUser().isEmailVerified()){
                                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, submit_info.class);
-                                progressDialog.dismiss();
-                                startActivity(intent);
-                                LoginActivity.this.finish();
+                                String user = fAuth.getCurrentUser().getUid();
+                                fStore.collection("User").document(user).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if(task.getResult().exists()){
+                                            Intent intent = new Intent(LoginActivity.this, menu.class);
+                                            progressDialog.dismiss();
+                                            startActivity(intent);
+                                            LoginActivity.this.finish();
+                                        }else{
+                                            Intent intent = new Intent(LoginActivity.this, submit_info.class);
+                                            progressDialog.dismiss();
+                                            startActivity(intent);
+                                            LoginActivity.this.finish();
+                                        }
+                                    }
+                                });
                             }
                             else{
                                 progressDialog.dismiss();

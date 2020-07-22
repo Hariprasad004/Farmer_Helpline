@@ -96,7 +96,6 @@ public class Profile extends Fragment {
         addr = view.findViewById(R.id.add);
         img = view.findViewById(R.id.profileimage);
         edit = view.findViewById(R.id.edb);
-        change = view.findViewById(R.id.edc);
         req = view.findViewById(R.id.edr);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
