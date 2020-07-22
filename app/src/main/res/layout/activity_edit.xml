@@ -20,21 +20,11 @@
 
             <ImageView
                 android:id="@+id/profileimage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/flag_wallis_and_futuna"
-                android:layout_centerVertical="true"/>
-            <EditText
-                android:id="@+id/full_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bhavya"
-                android:textSize="20sp"
-                android:layout_toRightOf="@+id/profileimage"
+                android:layout_width="124dp"
+                android:layout_height="160dp"
                 android:layout_centerVertical="true"
-                android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"/>
-
+                android:src="@drawable/flag_wallis_and_futuna"
+                tools:layout_marginLeft="120dp" />
 
 
         </RelativeLayout>
@@ -116,18 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:layout_marginBottom="10dp">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_visibility_off_24"
-                    android:drawablePadding="10dp"
-                    android:text="ammu123"/>
-
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="10dp"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

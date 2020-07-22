@@ -15,8 +15,8 @@ public class ListOfUsers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_users);
-        dec = getIntent().getStringExtra("Decision");
-        items[3]=dec;
+//        dec = getIntent().getStringExtra("Decision");
+//        items[3]=dec;
         ListView listView=(ListView) findViewById(R.id.ListView);
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.activity_list_item,items);
         listView.setAdapter(adapter);

@@ -28,10 +28,6 @@
             android:name=".menu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-       <!-- <activity
-            android:name=".Sdmenu"
-            android:label="@string/title_activity_sdmenu"
-            android:theme="@style/AppTheme.NoActionBar" />-->
         <activity android:name=".resetPass" />
         <activity android:name=".noLend" />
         <activity android:name=".near_by_Req" />

@@ -22,8 +22,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter the id"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:hint="Enter the id">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -31,7 +31,8 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_person_24"
                     android:drawablePadding="10dp"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    android:textColor="#EA0829" />
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/subid"
