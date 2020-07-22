@@ -7,15 +7,7 @@
     android:background="#09D5E8"
     tools:context=".ui.guideline.guidelineFragment">
 
-    <TextView
-        android:id="@+id/guidelines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:padding="@dimen/padding"
-        android:text="Guidelines"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:textColor="@android:color/white" />
+
 
     <TextView
         android:id="@+id/below_guidelines"
