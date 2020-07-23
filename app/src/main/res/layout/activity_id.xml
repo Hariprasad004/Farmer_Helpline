@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#937AFD"
+    android:background="#89D7F6"
     android:orientation="vertical"
     tools:context=".Id">
 
@@ -37,6 +37,7 @@
                 android:layout_marginBottom="30dp"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="10dp"
+                android:textColor="#050505"
                 android:text="ERA ori" />
 
 
@@ -46,6 +47,7 @@
                 android:layout_marginBottom="30dp"
                 android:drawableLeft="@drawable/ic_baseline_today_24"
                 android:drawablePadding="10dp"
+                android:textColor="#050505"
                 android:text="30" />
 
 
@@ -55,6 +57,7 @@
                 android:layout_marginBottom="30dp"
                 android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="10dp"
+                android:textColor="#050505"
                 android:text="990034567" />
 
             <TextView
@@ -63,6 +66,7 @@
                 android:layout_marginBottom="30dp"
                 android:drawableLeft="@drawable/ic_baseline_my_location_24"
                 android:drawablePadding="10dp"
+                android:textColor="#050505"
                 android:text="Panemangalore" />
 
 

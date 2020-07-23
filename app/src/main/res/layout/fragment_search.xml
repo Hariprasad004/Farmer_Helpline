@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#09D5E8"
+    android:background="#A4EEF4"
     tools:context=".Search">
 
 
@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:textColor="#090909"
                 android:hint="Enter the id">
 
 
@@ -32,7 +33,7 @@
                     android:drawableLeft="@drawable/ic_baseline_person_24"
                     android:drawablePadding="10dp"
                     android:inputType="text"
-                    android:textColor="#EA0829" />
+                    android:textColor="#070707" />
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/subid"

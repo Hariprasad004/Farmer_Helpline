@@ -14,7 +14,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             android:padding="20dp"
             android:background="#E19B43">
 
@@ -22,7 +22,6 @@
                 android:id="@+id/profileimage"
                 android:layout_width="124dp"
                 android:layout_height="160dp"
-                android:layout_centerVertical="true"
                 android:src="@drawable/flag_wallis_and_futuna"
                 tools:layout_marginLeft="120dp" />
 
