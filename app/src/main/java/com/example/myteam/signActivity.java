@@ -27,6 +27,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class signActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 104;
@@ -37,6 +39,7 @@ private Button signup;
 private TextView al_login;
 private Button cphone;
 private Button cemail;
+private FirebaseFirestore fStore;
 ProgressDialog progressDialog;
 GoogleSignInClient mGoogleSignInClient;
 
@@ -54,6 +57,7 @@ GoogleSignInClient mGoogleSignInClient;
         al_login = (TextView) findViewById(R.id.allrdy_login);
 
         final FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,10 +201,23 @@ GoogleSignInClient mGoogleSignInClient;
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = fAuth.getCurrentUser();
                             Toast.makeText(signActivity.this, user.getEmail()+" : "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(signActivity.this, submit_info.class);
-                            progressDialog.dismiss();
-                            startActivity(intent);
-                            signActivity.this.finish();
+                            String us = user.getUid();
+                            fStore.collection("User").document(us).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if(task.getResult().exists()){
+                                        Intent intent = new Intent(signActivity.this, menu.class);
+                                        progressDialog.dismiss();
+                                        startActivity(intent);
+                                        signActivity.this.finish();
+                                    }else{
+                                        Intent intent = new Intent(signActivity.this, submit_info.class);
+                                        progressDialog.dismiss();
+                                        startActivity(intent);
+                                        signActivity.this.finish();
+                                    }
+                                }
+                            });
                         } else {
                             // If sign in fails, display a message to the user.
                             progressDialog.dismiss();

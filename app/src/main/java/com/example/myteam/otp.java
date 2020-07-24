@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +37,7 @@ public class otp extends AppCompatActivity {
     private EditText enterOtp;
     private Button submit;
     private TextView resendOtp;
+    private FirebaseFirestore fStore;
     ProgressDialog progressDialog;
     String phone;
     @Override
@@ -43,6 +46,7 @@ public class otp extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
         //getSupportActionBar().setTitle("OTP Verification");
         getSupportActionBar().hide();
+        fStore = FirebaseFirestore.getInstance();
         et_otpNumber = findViewById(R.id.et_otpNumber);
         submit=(Button)findViewById(R.id.sub);
         resendOtp = findViewById(R.id.resend);
@@ -132,9 +136,23 @@ public class otp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             progressDialog.dismiss();
                             Toast.makeText(otp.this, "Verification Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(otp.this, submit_info.class);
-                            startActivity(intent);
-                            otp.this.finish();
+                            String user = fAuth.getCurrentUser().getUid();
+                            fStore.collection("User").document(user).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if(task.getResult().exists()){
+                                        Intent intent = new Intent(otp.this, menu.class);
+                                        progressDialog.dismiss();
+                                        startActivity(intent);
+                                        otp.this.finish();
+                                    }else{
+                                        Intent intent = new Intent(otp.this, submit_info.class);
+                                        progressDialog.dismiss();
+                                        startActivity(intent);
+                                        otp.this.finish();
+                                    }
+                                }
+                            });
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 progressDialog.dismiss();

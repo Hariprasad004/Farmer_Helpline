@@ -14,27 +14,16 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             android:padding="20dp"
             android:background="#E19B43">
 
             <ImageView
                 android:id="@+id/profileimage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="124dp"
+                android:layout_height="160dp"
                 android:src="@drawable/flag_wallis_and_futuna"
-                android:layout_centerVertical="true"/>
-            <EditText
-                android:id="@+id/full_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bhavya"
-                android:textSize="20sp"
-                android:layout_toRightOf="@+id/profileimage"
-                android:layout_centerVertical="true"
-                android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"/>
-
+                tools:layout_marginLeft="120dp" />
 
 
         </RelativeLayout>
@@ -54,11 +43,12 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_person_24"
                     android:drawablePadding="10dp"
-                    android:text="Bhavya"/>
+                    android:text="Bhavya" />
 
 
 
@@ -76,11 +66,12 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_today_24"
                     android:drawablePadding="10dp"
-                    android:text="19"/>
+                    android:text="19" />
 
 
 
@@ -98,11 +89,12 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                     android:drawablePadding="10dp"
-                    android:text="12345678"/>
+                    android:text="12345678" />
 
 
 
@@ -116,18 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:layout_marginBottom="10dp">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_visibility_off_24"
-                    android:drawablePadding="10dp"
-                    android:text="ammu123"/>
-
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="10dp"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,22 +117,23 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_add_location_24"
                     android:drawablePadding="10dp"
-                    android:text="address"/>
+                    android:text="address" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
             <Button
+                android:id="@+id/update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update"
                 android:background="@drawable/shape_button_enable"
+                android:text="Update"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>

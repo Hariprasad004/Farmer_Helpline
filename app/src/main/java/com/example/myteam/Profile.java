@@ -1,12 +1,33 @@
 package com.example.myteam;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.Objects;
+import java.util.concurrent.Executor;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +44,14 @@ public class Profile extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // Declared Variables
+    private TextView name1, name2, phone, age, addr;
+    private Button edit, change, req;
+    private ImageView img;
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
+    private String dec, userid;
 
     public Profile() {
         // Required empty public constructor
@@ -59,6 +88,64 @@ public class Profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        name1 = view.findViewById(R.id.full_name);
+        name2 = view.findViewById(R.id.na);
+        age = view.findViewById(R.id.age);
+        phone = view.findViewById(R.id.ph_num);
+        addr = view.findViewById(R.id.add);
+        img = view.findViewById(R.id.profileimage);
+        edit = view.findViewById(R.id.edb);
+        req = view.findViewById(R.id.edr);
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userid = fAuth.getCurrentUser().getUid();
+        DocumentReference dr = fStore.collection("User").document(userid);
+        dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                name1.setText(documentSnapshot.getString("Name"));
+                name2.setText(documentSnapshot.getString("Name"));
+                phone.setText(documentSnapshot.getString("Phone_Number"));
+                age.setText(documentSnapshot.getString("Age"));
+                addr.setText(documentSnapshot.getString("Address"));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        edit.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(),EditActivity.class);
+            startActivity(intent);
+        });
+
+        req.setOnClickListener(v -> {
+            AlertDialog.Builder alert= new AlertDialog.Builder(getActivity());
+            alert.setTitle("Request");
+            alert.setMessage("Search nearby lenders ?");
+            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dec = "Yes";
+                    Intent intent = new Intent(getActivity(), submit_info.class);
+                    intent.putExtra("Decision",dec);
+                    startActivity(intent);
+                }
+            });
+            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dec = "No";
+                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
+                    intent.putExtra("Decision",dec);
+                    startActivity(intent);
+                }
+            });
+            alert.create().show();
+        });
+        return view;
     }
 }

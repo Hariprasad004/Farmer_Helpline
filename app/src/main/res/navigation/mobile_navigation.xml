@@ -42,9 +42,5 @@
         android:name="com.example.myteam.Logout"
         android:label="Logout"
         tools:layout="@layout/fragment_logout" />
-    <fragment
-        android:id="@+id/nav_home2"
-        android:name="com.example.myteam.Home2"
-        android:label="Home2"
-        tools:layout="@layout/fragment_home2" />
+
 </navigation>
