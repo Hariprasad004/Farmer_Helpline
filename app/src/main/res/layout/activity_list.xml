@@ -21,15 +21,14 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginLeft="125dp"
-        android:src="@drawable/flag_wallis_and_futuna" />
+        app:srcCompat="@drawable/profile" />
 
     <TextView
         android:id="@+id/full_name"
-        android:layout_width="140dp"
+        android:layout_width="130dp"
         android:layout_height="40dp"
-        android:layout_marginTop="120dp"
         android:layout_marginLeft="120dp"
-        android:text="Bhavya"
+        android:layout_marginTop="120dp"
         android:textAlignment="center"
         android:textSize="30dp" />
 </RelativeLayout>
@@ -46,17 +45,17 @@
             android:layout_marginBottom="30dp"
             android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="10dp"
-            android:textColor="#ED000407"
-            android:text="Bhavya"/>
+            android:textColor="#ED000407" />
+
+
         <TextView
             android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:drawableLeft="@drawable/ic_baseline_today_24"
-            android:textColor="#ED000407"
             android:drawablePadding="10dp"
-            android:text="19"/>
+            android:textColor="#ED000407" />
 
 
         <TextView
@@ -66,8 +65,17 @@
             android:layout_marginBottom="30dp"
             android:drawableLeft="@drawable/ic_baseline_local_phone_24"
             android:drawablePadding="10dp"
-            android:textColor="#ED000407"
-            android:text="12345678"/>
+            android:textColor="#ED000407" />
+
+
+        // android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:drawableLeft="@drawable/ic_baseline_visibility_off_24"
+        android:drawablePadding="10dp"
+        android:inputType="textPassword"
+        android:text="ammu123"/>//
+
         <TextView
             android:id="@+id/add"
             android:layout_width="match_parent"
@@ -75,8 +83,7 @@
             android:layout_marginBottom="30dp"
             android:drawableLeft="@drawable/ic_baseline_add_location_24"
             android:drawablePadding="10dp"
-            android:textColor="#ED000407"
-            android:text="Address"/>
+            android:textColor="#ED000407" />
 
     </LinearLayout>
     </LinearLayout>
