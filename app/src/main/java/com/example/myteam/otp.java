@@ -134,7 +134,6 @@ public class otp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            progressDialog.dismiss();
                             Toast.makeText(otp.this, "Verification Successful", Toast.LENGTH_SHORT).show();
                             String user = fAuth.getCurrentUser().getUid();
                             fStore.collection("User").document(user).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

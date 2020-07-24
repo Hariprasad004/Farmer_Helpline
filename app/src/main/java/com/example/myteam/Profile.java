@@ -25,6 +25,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 import java.util.concurrent.Executor;
@@ -51,7 +54,9 @@ public class Profile extends Fragment {
     private ImageView img;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
+    private StorageReference SReference;
     private String dec, userid;
+    private ImageView profileimg;
 
     public Profile() {
         // Required empty public constructor
@@ -97,9 +102,17 @@ public class Profile extends Fragment {
         img = view.findViewById(R.id.profileimage);
         edit = view.findViewById(R.id.edb);
         req = view.findViewById(R.id.edr);
+        profileimg = view.findViewById(R.id.profileimage);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        SReference = FirebaseStorage.getInstance().getReference();
         userid = fAuth.getCurrentUser().getUid();
+
+        StorageReference profileRef = SReference.child("Users/"+userid+"/Profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+            Picasso.get().load(uri).into(profileimg);
+        });
+
         DocumentReference dr = fStore.collection("User").document(userid);
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override

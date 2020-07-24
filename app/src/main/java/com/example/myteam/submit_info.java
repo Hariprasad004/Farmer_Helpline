@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
@@ -29,11 +30,16 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.hbb20.CountryCodePicker;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.List;
@@ -53,8 +59,9 @@ public class submit_info extends AppCompatActivity {
     private CountryCodePicker ccode;
     private Button submit;
     private LocationManager locationManager;
+    private StorageReference SReference;
     ProgressDialog progressDialog;
-    String userId;
+    private String userId;
     Double final_latitude = 0.0, final_longitude = 0.0;
     boolean addr = true;
 
@@ -75,6 +82,7 @@ public class submit_info extends AppCompatActivity {
         requestPermission();
         final FirebaseAuth fAuth = FirebaseAuth.getInstance();
         final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+        SReference = FirebaseStorage.getInstance().getReference();
         submit.setOnClickListener(v -> {
             progressDialog = new ProgressDialog(submit_info.this);
             //show dialog
@@ -129,13 +137,14 @@ public class submit_info extends AppCompatActivity {
                 user.put("Latitude", final_latitude);
                 user.put("Longitude", final_longitude);
                 user.put("Address", person_address);
+//                uploadImage();
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        progressDialog.dismiss();
                         Toast.makeText(submit_info.this, "User profile is created", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "User profile is created");
                         Intent intent = new Intent(submit_info.this, menu.class);
+                        progressDialog.dismiss();
                         startActivity(intent);
                         submit_info.this.finish();
                     }
@@ -144,6 +153,26 @@ public class submit_info extends AppCompatActivity {
 
         });
     }
+
+    //-----------Image upload--------------
+//    private void uploadImage() {
+//        Uri imageuri = app/res/drawable/profile;
+//        StorageReference fileRef = SReference.child("Users/"+userId+"Profile.jpg");
+//        fileRef.putFile(imageuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//            @Override
+//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+//
+//                });
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//
+//            }
+//        });
+//
+//    }
 
 
     //-----------Location Access------------
