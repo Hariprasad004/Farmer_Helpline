@@ -66,6 +66,8 @@ public class ListOfUsers extends AppCompatActivity {
             textView_phone.setText(PHONE[i]);
             textView_address.setText(ADDRESS[i]);
             textView_age.setText(AGE[i]);
+
+
             return view;
         }
     }
