@@ -22,8 +22,8 @@
                 android:id="@+id/profileimage"
                 android:layout_width="124dp"
                 android:layout_height="160dp"
-                android:src="@drawable/flag_wallis_and_futuna"
-                tools:layout_marginLeft="120dp" />
+                android:layout_marginLeft="120dp"
+                app:srcCompat="@drawable/profile" />
 
 
         </RelativeLayout>
@@ -47,8 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_person_24"
-                    android:drawablePadding="10dp"
-                    android:text="Bhavya" />
+                    android:drawablePadding="10dp" />
 
 
 
@@ -70,8 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_today_24"
-                    android:drawablePadding="10dp"
-                    android:text="19" />
+                    android:drawablePadding="10dp" />
 
 
 
@@ -93,8 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_local_phone_24"
-                    android:drawablePadding="10dp"
-                    android:text="12345678" />
+                    android:drawablePadding="10dp" />
 
 
 
@@ -121,8 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_add_location_24"
-                    android:drawablePadding="10dp"
-                    android:text="address" />
+                    android:drawablePadding="10dp" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
