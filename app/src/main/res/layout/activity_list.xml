@@ -24,13 +24,19 @@
         app:srcCompat="@drawable/profile" />
 
     <TextView
-        android:id="@+id/full_name"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="120dp"
-        android:textAlignment="center"
-        android:textSize="30dp" />
+        android:id="@+id/cat"
+        android:layout_width="152dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="0dp"
+        android:textAlignment="center" />
+
 </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"

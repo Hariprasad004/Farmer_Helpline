@@ -30,9 +30,9 @@ public class ListOfUsers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_users);
         ListView listView=(ListView)findViewById(R.id.ListView);
+        String list = getIntent().getStringExtra("dec");
         CustomAdapter customAdapter=new CustomAdapter();
         listView.setAdapter(customAdapter);
-
 
     }
     class CustomAdapter extends BaseAdapter{

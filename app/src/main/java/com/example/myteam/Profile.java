@@ -51,7 +51,6 @@ public class Profile extends Fragment {
     // Declared Variables
     private TextView name1, name2, phone, age, addr;
     private Button edit, change, req;
-    private ImageView img;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
     private StorageReference SReference;
@@ -99,7 +98,6 @@ public class Profile extends Fragment {
         age = view.findViewById(R.id.age);
         phone = view.findViewById(R.id.ph_num);
         addr = view.findViewById(R.id.add);
-        img = view.findViewById(R.id.profileimage);
         edit = view.findViewById(R.id.edb);
         req = view.findViewById(R.id.edr);
         profileimg = view.findViewById(R.id.profileimage);
@@ -143,7 +141,7 @@ public class Profile extends Fragment {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dec = "Yes";
-                    Intent intent = new Intent(getActivity(), submit_info.class);
+                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
                     intent.putExtra("Decision",dec);
                     startActivity(intent);
                 }
