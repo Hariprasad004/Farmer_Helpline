@@ -137,7 +137,7 @@ public class submit_info extends AppCompatActivity {
                 user.put("Latitude", final_latitude);
                 user.put("Longitude", final_longitude);
                 user.put("Address", person_address);
-//                uploadImage();
+                user.put("Image", "https://firebasestorage.googleapis.com/v0/b/my-team-62402.appspot.com/o/profile.jpg?alt=media&token=472e5f25-48b7-4b4e-b601-df7b0a8c96ba");
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -153,26 +153,6 @@ public class submit_info extends AppCompatActivity {
 
         });
     }
-
-    //-----------Image upload--------------
-//    private void uploadImage() {
-//        Uri imageuri = app/res/drawable/profile;
-//        StorageReference fileRef = SReference.child("Users/"+userId+"Profile.jpg");
-//        fileRef.putFile(imageuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//            @Override
-//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//
-//                });
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//
-//            }
-//        });
-//
-//    }
 
 
     //-----------Location Access------------

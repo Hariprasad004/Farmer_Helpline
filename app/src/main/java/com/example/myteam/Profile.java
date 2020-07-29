@@ -140,19 +140,19 @@ public class Profile extends Fragment {
             alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    dec = "Yes";
-                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
-                    intent.putExtra("Decision",dec);
-                    startActivity(intent);
+//                    dec = "Yes";
+//                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
+//                    intent.putExtra("Decision",dec);
+//                    startActivity(intent);
                 }
             });
             alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    dec = "No";
-                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
-                    intent.putExtra("Decision",dec);
-                    startActivity(intent);
+//                    dec = "No";
+//                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
+//                    intent.putExtra("Decision",dec);
+//                    startActivity(intent);
                 }
             });
             alert.create().show();

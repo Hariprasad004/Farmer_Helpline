@@ -28,7 +28,7 @@ public class phone extends AppCompatActivity {
                 String phonenumber = phonenum.getText().toString().trim();
                 if(!phonenumber.isEmpty() && phonenumber.length()==10){
                         String pNo="+"+ccode.getSelectedCountryCode()+phonenumber;
-                        Intent intent = new Intent(phone.this, com.example.myteam.otp.class);
+                        Intent intent = new Intent(phone.this, otp.class);
                         intent.putExtra("PhoneNo",pNo);
                         startActivity(intent);
                 }

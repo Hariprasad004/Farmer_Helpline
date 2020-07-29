@@ -39,7 +39,7 @@ public class EditActivity extends AppCompatActivity {
     private EditText addr;
     private EditText age;
     private Button update;
-    private String userid;
+    private String userid, url = "https://firebasestorage.googleapis.com/v0/b/my-team-62402.appspot.com/o/profile.jpg?alt=media&token=472e5f25-48b7-4b4e-b601-df7b0a8c96ba";
     ProgressDialog progressDialog;
 
     @Override
@@ -126,6 +126,7 @@ public class EditActivity extends AppCompatActivity {
             edited.put("Phone_Number", Phone);
             edited.put("Age", Age);
             edited.put("Address", Address);
+            edited.put("Image", url);
             docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -174,13 +175,15 @@ public class EditActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     Picasso.get().load(uri).into(profileimg);
+                    url = uri.toString();
+                    progressDialog.dismiss();
                 });
-                progressDialog.dismiss();
                 Toast.makeText(EditActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                progressDialog.dismiss();
                 Toast.makeText(EditActivity.this, "Failed", Toast.LENGTH_SHORT).show();
             }
         });
