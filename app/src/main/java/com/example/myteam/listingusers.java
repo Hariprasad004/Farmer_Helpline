@@ -33,43 +33,35 @@ public class listingusers extends AppCompatActivity {
         mUsers_RecyclerView=(RecyclerView)findViewById(R.id.users_recyclerview);
         mUsers_RecyclerView.setLayoutManager(new LinearLayoutManager(this));
         String dec = getIntent().getStringExtra("dec");
-        fStore = FirebaseFirestore.getInstance();
-        CollectionReference cRef = fStore.collection("User");
-        Query query = cRef.whereEqualTo("FarmLend", "Farmer");
-//        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if(task.isSuccessful()){
-//
-//                }
-//            }
-//        })
-        query.get().addOnSuccessListener(queryDocumentSnapshots -> {
-           if(!queryDocumentSnapshots.isEmpty()) {
-               List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-               for (DocumentSnapshot document : list) {
-                   User user = new User();
-                   user.setfirstname(document.getString("Name"));
-                   user.setaddresslist(document.getString("Address"));
-                   user.setListage(document.getString("Age"));
-                   user.setcontactlist(document.getString("Phone"));
-                   user.setprofileImage(document.getString("Image"));
-                   mUser.add(user);
-               }
-               mUsers_RecyclerView.setAdapter(new UserAdapter(mUser));
-           }
-           else{
-               Intent intent = new Intent(listingusers.this, noLend.class);
-               intent.putExtra("User", "user");
-               startActivity(intent);
-               listingusers.this.finish();
-           }
-        }).addOnFailureListener(e -> {
-            Intent intent = new Intent(listingusers.this, noLend.class);
-            intent.putExtra("User", "user");
-            startActivity(intent);
-            listingusers.this.finish();
-        });
+//        fStore = FirebaseFirestore.getInstance();
+//        CollectionReference cRef = fStore.collection("User");
+//        Query query = cRef.whereEqualTo("FarmLend", "Farmer");
+//        query.get().addOnSuccessListener(queryDocumentSnapshots -> {
+//           if(!queryDocumentSnapshots.isEmpty()) {
+//               List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+//               for (DocumentSnapshot document : list) {
+//                   User user = new User();
+//                   user.setfirstname(document.getString("Name"));
+//                   user.setaddresslist(document.getString("Address"));
+//                   user.setListage(document.getString("Age"));
+//                   user.setcontactlist(document.getString("Phone"));
+//                   user.setprofileImage(document.getString("Image"));
+//                   mUser.add(user);
+//               }
+//               mUsers_RecyclerView.setAdapter(new UserAdapter(mUser));
+//           }
+//           else{
+//               Intent intent = new Intent(listingusers.this, noLend.class);
+//               intent.putExtra("User", "user");
+//               startActivity(intent);
+//               listingusers.this.finish();
+//           }
+//        }).addOnFailureListener(e -> {
+//            Intent intent = new Intent(listingusers.this, noLend.class);
+//            intent.putExtra("User", "user");
+//            startActivity(intent);
+//            listingusers.this.finish();
+//        });
 
     }
     class UserAdapter extends RecyclerView.Adapter<UserViewHolder>{
