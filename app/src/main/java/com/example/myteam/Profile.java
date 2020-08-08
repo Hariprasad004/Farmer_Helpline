@@ -53,7 +53,7 @@ public class Profile extends Fragment {
     private Button edit, change, req;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private StorageReference SReference;
+    //private StorageReference SReference;
     private String dec, userid;
     private ImageView profileimg;
 
@@ -103,18 +103,20 @@ public class Profile extends Fragment {
         profileimg = view.findViewById(R.id.profileimage);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        SReference = FirebaseStorage.getInstance().getReference();
+        //SReference = FirebaseStorage.getInstance().getReference();
         userid = fAuth.getCurrentUser().getUid();
 
-        StorageReference profileRef = SReference.child("Users/"+userid+"/Profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-            Picasso.get().load(uri).into(profileimg);
-        });
+//        StorageReference profileRef = SReference.child("Users/"+userid+"/Profile.jpg");
+//        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+//            Picasso.get().load(uri).into(profileimg);
+//        });
 
         DocumentReference dr = fStore.collection("User").document(userid);
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String uri = documentSnapshot.getString("Image");
+                Picasso.get().load(uri).into(profileimg);
                 name1.setText(documentSnapshot.getString("Name"));
                 name2.setText(documentSnapshot.getString("Name"));
                 phone.setText(documentSnapshot.getString("Phone_Number"));
@@ -140,19 +142,19 @@ public class Profile extends Fragment {
             alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//                    dec = "Yes";
-//                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
-//                    intent.putExtra("Decision",dec);
-//                    startActivity(intent);
+                    dec = "Yes";
+                    Intent intent = new Intent(getActivity(), listingusers.class);
+                    intent.putExtra("Decision",dec);
+                    startActivity(intent);
                 }
             });
             alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//                    dec = "No";
-//                    Intent intent = new Intent(getActivity(), ListOfUsers.class);
-//                    intent.putExtra("Decision",dec);
-//                    startActivity(intent);
+                    dec = "No";
+                    Intent intent = new Intent(getActivity(), listingusers.class);
+                    intent.putExtra("Decision",dec);
+                    startActivity(intent);
                 }
             });
             alert.create().show();
