@@ -27,6 +27,7 @@
                 app:srcCompat="@drawable/profile"
                 app:civ_border_width="2dp"/>
 
+
             <TextView
                 android:id="@+id/full_name"
                 android:layout_width="362dp"
