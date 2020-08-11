@@ -38,7 +38,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".resetPass" />
         <activity android:name=".noLend" />
-        <activity android:name=".near_by_Req" />
         <activity android:name=".ListOfUsers" />
         <activity android:name=".signActivity" />
         <activity android:name=".LoginActivity" />

@@ -23,7 +23,7 @@
                 android:id="@+id/profileimage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginLeft="125dp"
+                android:layout_marginStart="125dp"
                 app:srcCompat="@drawable/profile"
                 app:civ_border_width="2dp"/>
 
