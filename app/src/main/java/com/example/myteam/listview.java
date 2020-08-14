@@ -31,7 +31,7 @@ public class listview extends AppCompatActivity {
         list = new ArrayList<prof>();
         fStore = FirebaseFirestore.getInstance();
         CollectionReference cRef = fStore.collection("User");
-        Query query = cRef.whereEqualTo("FarmLend", "Farmer");
+        Query query = cRef.whereEqualTo("FarmLend", "Lender");
         query.get().addOnSuccessListener(queryDocumentSnapshots -> {
            if(!queryDocumentSnapshots.isEmpty()) {
                 for(DocumentSnapshot dataSnapshot:queryDocumentSnapshots.getDocuments()){
@@ -39,7 +39,7 @@ public class listview extends AppCompatActivity {
                     p.setName(dataSnapshot.getString("Name"));
                     p.setAddres(dataSnapshot.getString("Address"));
                     p.setAge(dataSnapshot.getString("Age"));
-                    p.setContact(dataSnapshot.getString("Phone"));
+                    p.setContact(dataSnapshot.getString("Phone_Number"));
                     p.setPROFILE_PIC(dataSnapshot.getString("Image"));
                     list.add(p);
                 }

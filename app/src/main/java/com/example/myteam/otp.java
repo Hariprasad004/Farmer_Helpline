@@ -131,7 +131,7 @@ public class otp extends AppCompatActivity {
         //////////////////////////////////// Progress Dialogue should stop after 45 seconds/////////////////////////////////////
 
 
-        
+
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         fAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
