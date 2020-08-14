@@ -6,16 +6,28 @@ public class prof {
     private String contact;
     private  String addres;
    private  String PROFILE_PIC;
+   private String user;
 
     public prof() {
     }
 
-    public prof(String name, String age, String contact, String addres, String PROFILE_PIC) {
+    public prof(String name, String age, String contact, String addres, String PROFILE_PIC, String user) {
+        this.user = user;
         this.name = name;
         this.age = age;
         this.contact = contact;
         this.addres = addres;
         this.PROFILE_PIC = PROFILE_PIC;
+    }
+
+    public String getid() {
+
+        return user;
+    }
+
+    public void setid(String user) {
+
+        this.user = user;
     }
 
     public String getName() {

@@ -34,6 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.user.setText(profiles.get(position).getid());
         holder.Name.setText(profiles.get(position).getName());
         holder.Age.setText(profiles.get(position).getAge());
         holder.Phone.setText(profiles.get(position).getContact());
@@ -47,10 +48,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView Name, Phone, Age, Address;
+        TextView Name, Phone, Age, Address,user;
         ImageView photo;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            user = (TextView) itemView.findViewById(R.id.userid) ;
             Name = (TextView) itemView.findViewById(R.id.name);
             Phone = (TextView) itemView.findViewById(R.id.contact);
             Age = (TextView) itemView.findViewById(R.id.age);

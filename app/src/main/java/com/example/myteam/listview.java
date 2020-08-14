@@ -36,6 +36,7 @@ public class listview extends AppCompatActivity {
            if(!queryDocumentSnapshots.isEmpty()) {
                 for(DocumentSnapshot dataSnapshot:queryDocumentSnapshots.getDocuments()){
                     prof p = new prof();
+                    p.setid(dataSnapshot.getId());
                     p.setName(dataSnapshot.getString("Name"));
                     p.setAddres(dataSnapshot.getString("Address"));
                     p.setAge(dataSnapshot.getString("Age"));
