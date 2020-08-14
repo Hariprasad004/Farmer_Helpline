@@ -19,22 +19,27 @@ public class prof {
     }
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getAge() {
+
         return age;
     }
 
     public void setAge(String age) {
+
         this.age = age;
     }
 
     public String getContact() {
+
         return contact;
     }
 
@@ -43,10 +48,12 @@ public class prof {
     }
 
     public String getAddres() {
+
         return addres;
     }
 
     public void setAddres(String addres) {
+
         this.addres = addres;
     }
 

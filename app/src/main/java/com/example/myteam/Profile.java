@@ -143,7 +143,7 @@ public class Profile extends Fragment {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dec = "Yes";
-                    Intent intent = new Intent(getActivity(), listingusers.class);
+                    Intent intent = new Intent(getActivity(), listview.class);
                     intent.putExtra("Decision",dec);
                     startActivity(intent);
                 }
@@ -152,7 +152,7 @@ public class Profile extends Fragment {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dec = "No";
-                    Intent intent = new Intent(getActivity(), listingusers.class);
+                    Intent intent = new Intent(getActivity(), listview.class);
                     intent.putExtra("Decision",dec);
                     startActivity(intent);
                 }
