@@ -24,6 +24,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginStart="125dp"
+                android:scaleType="fitXY"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/profile"
                 app:civ_border_width="2dp"
@@ -103,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:text="Edit"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/shape_button_enable"
                 android:textColor="@color/colorPrimaryDark" />
 
@@ -112,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
+                android:layout_centerHorizontal="true"
                 android:text="Request"
                 android:background="@drawable/shape_button_enable"
                 android:textColor="@color/colorPrimaryDark" />
