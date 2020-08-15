@@ -23,12 +23,14 @@
                 android:id="@+id/profileimage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="125dp"
-                android:scaleType="fitXY"
-                android:layout_centerHorizontal="true"
-                app:srcCompat="@drawable/profile"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="125dp"
+                android:layout_marginRight="125dp"
+                android:textAlignment="center"
+                app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="2dp"
-                app:civ_border_color="@color/colorPrimary"/>
+                app:srcCompat="@drawable/profile" />
 
 
             <TextView
@@ -37,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="120dp"
+                android:layout_marginRight="5dp"
                 android:textAlignment="center"
                 android:textSize="30dp" />
 

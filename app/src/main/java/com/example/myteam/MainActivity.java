@@ -28,7 +28,7 @@ private int SLEEP_TIMER=3;
          }catch(InterruptedException e){
              e.printStackTrace();
          }
-         Intent intent =new Intent(MainActivity.this, listview.class);
+         Intent intent =new Intent(MainActivity.this, signActivity.class);
          startActivity(intent);
          MainActivity.this.finish();
 
