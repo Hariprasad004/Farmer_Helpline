@@ -106,11 +106,6 @@ public class Profile extends Fragment {
         //SReference = FirebaseStorage.getInstance().getReference();
         userid = fAuth.getCurrentUser().getUid();
 
-//        StorageReference profileRef = SReference.child("Users/"+userid+"/Profile.jpg");
-//        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//            Picasso.get().load(uri).into(profileimg);
-//        });
-
         DocumentReference dr = fStore.collection("User").document(userid);
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -118,7 +113,7 @@ public class Profile extends Fragment {
                 String uri = documentSnapshot.getString("Image");
                 Picasso.get().load(uri).into(profileimg);
                 name1.setText(documentSnapshot.getString("Name"));
-                name2.setText(documentSnapshot.getString("Name"));
+                name2.setText(userid);
                 phone.setText(documentSnapshot.getString("Phone_Number"));
                 age.setText(documentSnapshot.getString("Age"));
                 addr.setText(documentSnapshot.getString("Address"));

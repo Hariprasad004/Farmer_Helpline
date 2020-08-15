@@ -24,7 +24,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/list"
+                android:id="@+id/userid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
@@ -92,7 +92,6 @@
             android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:scaleType="fitXY"
             app:civ_border_width="2dp" />
     </LinearLayout>
 
