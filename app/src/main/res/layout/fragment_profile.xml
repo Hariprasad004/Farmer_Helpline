@@ -112,13 +112,14 @@
                 android:id="@+id/edr"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
                 android:layout_centerHorizontal="true"
-                android:text="Request"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
                 android:background="@drawable/shape_button_enable"
-                android:textColor="@color/colorPrimaryDark" />
+                android:text="Request"
+                android:textColor="@color/colorPrimaryDark"
+                android:visibility="invisible" />
 
         </LinearLayout>
 

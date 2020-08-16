@@ -50,12 +50,13 @@ public class Profile extends Fragment {
 
     // Declared Variables
     private TextView name1, name2, phone, age, addr;
-    private Button edit, change, req;
+    private Button edit, req;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
     //private StorageReference SReference;
     private String dec, userid;
     private ImageView profileimg;
+    String farmlend;
 
     public Profile() {
         // Required empty public constructor
@@ -110,6 +111,10 @@ public class Profile extends Fragment {
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                farmlend = documentSnapshot.getString("FarmLend");
+                if(farmlend.equals("Farmer")){
+                    req.setVisibility(View.VISIBLE);
+                }
                 String uri = documentSnapshot.getString("Image");
                 Picasso.get().load(uri).into(profileimg);
                 name1.setText(documentSnapshot.getString("Name"));
@@ -131,28 +136,30 @@ public class Profile extends Fragment {
         });
 
         req.setOnClickListener(v -> {
-            AlertDialog.Builder alert= new AlertDialog.Builder(getActivity());
-            alert.setTitle("Request");
-            alert.setMessage("Search nearby lenders ?");
-            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dec = "Yes";
-                    Intent intent = new Intent(getActivity(), listview.class);
-                    intent.putExtra("Decision",dec);
-                    startActivity(intent);
-                }
-            });
-            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dec = "No";
-                    Intent intent = new Intent(getActivity(), listview.class);
-                    intent.putExtra("Decision",dec);
-                    startActivity(intent);
-                }
-            });
-            alert.create().show();
+            if(farmlend.equals("Farmer")) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                alert.setTitle("Request");
+                alert.setMessage("Search nearby lenders ?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dec = "Yes";
+                        Intent intent = new Intent(getActivity(), listview.class);
+                        intent.putExtra("Decision", dec);
+                        startActivity(intent);
+                    }
+                });
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dec = "No";
+                        Intent intent = new Intent(getActivity(), listview.class);
+                        intent.putExtra("Decision", dec);
+                        startActivity(intent);
+                    }
+                });
+                alert.create().show();
+            }
         });
         return view;
     }

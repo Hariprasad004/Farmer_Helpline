@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +42,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.Phone.setText(profiles.get(position).getContact());
         holder.Address.setText(profiles.get(position).getAddres());
         Picasso.get().load(profiles.get(position).getPROFILE_PIC()).into(holder.photo);
+        holder.full.setVisibility(View.VISIBLE);
+        holder.onClick(position);
     }
 
     @Override
@@ -50,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView Name, Phone, Age, Address,user;
         ImageView photo;
+        LinearLayout full;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             user = (TextView) itemView.findViewById(R.id.userid) ;
@@ -58,6 +63,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             Age = (TextView) itemView.findViewById(R.id.age);
             Address = (TextView) itemView.findViewById(R.id.addr);
             photo = (ImageView) itemView.findViewById(R.id.profile_pic);
+            full = (LinearLayout) itemView.findViewById(R.id.list);
+        }
+        public void onClick(final int position){
+            full.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, position+" is checked", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 }
