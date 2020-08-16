@@ -26,6 +26,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class listview extends AppCompatActivity {
+    private static final String TAG = "TAG";
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
     RecyclerView recyclerView;
@@ -49,13 +50,15 @@ public class listview extends AppCompatActivity {
                 android.R.color.transparent
         );
         String dec = getIntent().getStringExtra("Decision");
+        Log.d(TAG,"--------------------------------------------------------------------------------------------------------");
+        Log.d(TAG,dec);
         recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<prof>();
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         CollectionReference cRef = fStore.collection("User");
-        if (dec == "No") {
+        if (dec.equals("No")) {
             Query query = cRef.whereEqualTo("FarmLend", "Lender");
             query.get().addOnSuccessListener(queryDocumentSnapshots -> {
                 if (!queryDocumentSnapshots.isEmpty()) {
@@ -112,21 +115,30 @@ public class listview extends AppCompatActivity {
             Query query = cRef.whereEqualTo("FarmLend", "Lender");
             query.get().addOnSuccessListener(queryDocumentSnapshots -> {
                 if (!queryDocumentSnapshots.isEmpty()) {
-                    for (DocumentSnapshot dataSnapshot : queryDocumentSnapshots.getDocuments()) {
-                        float[] results = new float[1];
-                        Location.distanceBetween(centerLatitude, centerLongitude, dataSnapshot.getDouble("Latitude"), dataSnapshot.getDouble("Longitude"), results);
-                        float distanceInMeters = results[0];
-                        boolean isWithin20km = distanceInMeters < 20000;
-                        if (isWithin20km) {
-                            prof p = new prof();
-                            p.setid(dataSnapshot.getId());
-                            p.setName(dataSnapshot.getString("Name"));
-                            p.setAddres(dataSnapshot.getString("Address"));
-                            p.setAge(dataSnapshot.getString("Age"));
-                            p.setContact(dataSnapshot.getString("Phone_Number"));
-                            p.setPROFILE_PIC(dataSnapshot.getString("Image"));
-                            list.add(p);
+                    try {
+                        for (DocumentSnapshot dataSnapshot : queryDocumentSnapshots.getDocuments()) {
+                            float[] results = new float[1];
+                            Location.distanceBetween(centerLatitude, centerLongitude, dataSnapshot.getDouble("Latitude"), dataSnapshot.getDouble("Longitude"), results);
+                            float distanceInMeters = results[0];
+                            boolean isWithin20km = distanceInMeters < 20000;
+                            if (isWithin20km) {
+                                prof p = new prof();
+                                p.setid(dataSnapshot.getId());
+                                p.setName(dataSnapshot.getString("Name"));
+                                p.setAddres(dataSnapshot.getString("Address"));
+                                p.setAge(dataSnapshot.getString("Age"));
+                                p.setContact(dataSnapshot.getString("Phone_Number"));
+                                p.setPROFILE_PIC(dataSnapshot.getString("Image"));
+                                list.add(p);
+                            }
                         }
+                    }
+                    catch(Exception e){
+                        Intent intent = new Intent(listview.this, noLend.class);
+                        intent.putExtra("User", "lender");
+                        progressDialog.dismiss();
+                        startActivity(intent);
+                        listview.this.finish();
                     }
                     adapter = new MyAdapter(listview.this, list);
                     recyclerView.setAdapter(adapter);
