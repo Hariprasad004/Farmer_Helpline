@@ -23,7 +23,7 @@
             android:layout_marginBottom="10dp">
 
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/userid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,12 +84,12 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="195dp"
+        android:layout_height="300dp"
         android:layout_weight="1">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="150dp"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             app:civ_border_width="2dp" />
