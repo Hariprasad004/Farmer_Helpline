@@ -1,8 +1,10 @@
 package com.example.myteam;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -39,7 +41,7 @@ public class menu extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_profile,R.id.nav_search,R.id.nav_logout, R.id.nav_about, R.id.nav_guideline, R.id.nav_home)
+                R.id.nav_profile, R.id.nav_search, R.id.nav_logout, R.id.nav_about, R.id.nav_guideline, R.id.nav_home)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -53,6 +55,17 @@ public class menu extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_logout:
+                Toast.makeText(this,"logout botten clicked",Toast.LENGTH_SHORT).show();
+                break;
+        }
+      return  super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
