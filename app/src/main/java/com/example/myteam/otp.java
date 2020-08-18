@@ -65,6 +65,15 @@ public class otp extends AppCompatActivity {
         resendOtp.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //show dialog
+                progressDialog.show();
+                //set content view
+                progressDialog.setContentView(R.layout.progress_dialog);
+                //set transparent background
+                progressDialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
                 sendVerificationCodeToUser(phone);
             }
         }));
@@ -72,6 +81,9 @@ public class otp extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String code = et_otpNumber.getText().toString().trim();
+                if (!code.isEmpty()){
+                    verifyCode(code);
                 progressDialog = new ProgressDialog(otp.this);
                 //show dialog
                 progressDialog.show();
@@ -81,9 +93,7 @@ public class otp extends AppCompatActivity {
                 progressDialog.getWindow().setBackgroundDrawableResource(
                         android.R.color.transparent
                 );
-                String code = et_otpNumber.getText().toString().trim();
-                if(!code.isEmpty())
-                    verifyCode(code);
+            }
                 else{
                     Toast.makeText(otp.this, "Enter the otp", Toast.LENGTH_SHORT).show();
                 }
@@ -128,10 +138,6 @@ public class otp extends AppCompatActivity {
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        //////////////////////////////////// Progress Dialogue should stop after 45 seconds/////////////////////////////////////
-
-
-
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         fAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -157,8 +163,8 @@ public class otp extends AppCompatActivity {
                                 }
                             });
                         } else {
+                            progressDialog.dismiss();
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                progressDialog.dismiss();
                                 Toast.makeText(otp.this, "Verification is not complete", Toast.LENGTH_SHORT).show();
                             }
                         }

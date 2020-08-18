@@ -20,7 +20,7 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class ListActivity extends AppCompatActivity {
-    private TextView name, phone, age, addr;
+    private TextView name, phone, age, addr, farmlend;
     private FirebaseFirestore fStore;
     private StorageReference SReference;
     private ImageView profileimg;
@@ -33,6 +33,7 @@ public class ListActivity extends AppCompatActivity {
         phone = findViewById(R.id.ph_num);
         age = findViewById(R.id.age);
         addr = findViewById(R.id.add);
+        farmlend = findViewById(R.id.fl);
         profileimg = findViewById(R.id.profileimage);
         String id = getIntent().getStringExtra("Id");
         fStore = FirebaseFirestore.getInstance();
@@ -51,6 +52,7 @@ public class ListActivity extends AppCompatActivity {
                 phone.setText(documentSnapshot.getString("Phone_Number"));
                 age.setText(documentSnapshot.getString("Age"));
                 addr.setText(documentSnapshot.getString("Address"));
+                farmlend.setText(documentSnapshot.getString("FarmLend"));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

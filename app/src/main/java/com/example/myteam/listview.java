@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,8 +52,6 @@ public class listview extends AppCompatActivity {
                 android.R.color.transparent
         );
         String dec = getIntent().getStringExtra("Decision");
-        Log.d(TAG,"--------------------------------------------------------------------------------------------------------");
-        Log.d(TAG,dec);
         recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<prof>();
@@ -72,7 +72,7 @@ public class listview extends AppCompatActivity {
                         p.setPROFILE_PIC(dataSnapshot.getString("Image"));
                         list.add(p);
                     }
-                    adapter = new MyAdapter(listview.this, list);
+                    adapter = new MyAdapter(listview.this, this, list);
                     recyclerView.setAdapter(adapter);
                     progressDialog.dismiss();
                 } else {
@@ -140,7 +140,7 @@ public class listview extends AppCompatActivity {
                         startActivity(intent);
                         listview.this.finish();
                     }
-                    adapter = new MyAdapter(listview.this, list);
+                    adapter = new MyAdapter(listview.this, this, list);
                     recyclerView.setAdapter(adapter);
                     progressDialog.dismiss();
                 } else {
@@ -159,5 +159,20 @@ public class listview extends AppCompatActivity {
             });
         }
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == 0){
+            if (grantResults.length >= 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            }
+            else {
+                Toast.makeText(this, "Failed to send the message", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+            Toast.makeText(this, "Failed to send the message", Toast.LENGTH_SHORT).show();
+        }
     }
 }
