@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:background="#D3D141"
     tools:context=".ListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#1177C8"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -18,11 +18,13 @@
             android:layout_height="200dp"
             android:padding="20dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileimage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginLeft="125dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                app:civ_border_width="2dp"
                 app:srcCompat="@drawable/profile" />
 
         </RelativeLayout>
