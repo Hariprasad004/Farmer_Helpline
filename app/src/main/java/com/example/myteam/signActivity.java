@@ -205,12 +205,20 @@ GoogleSignInClient mGoogleSignInClient;
                             fStore.collection("User").document(us).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                    if(task.getResult().exists()){
-                                        Intent intent = new Intent(signActivity.this, menu.class);
-                                        progressDialog.dismiss();
-                                        startActivity(intent);
-                                        signActivity.this.finish();
-                                    }else{
+                                    try {
+                                        if (task.getResult().exists()) {
+                                            Intent intent = new Intent(signActivity.this, menu.class);
+                                            progressDialog.dismiss();
+                                            startActivity(intent);
+                                            signActivity.this.finish();
+                                        } else {
+                                            Intent intent = new Intent(signActivity.this, submit_info.class);
+                                            progressDialog.dismiss();
+                                            startActivity(intent);
+                                            signActivity.this.finish();
+                                        }
+                                    }
+                                    catch (Exception e){
                                         Intent intent = new Intent(signActivity.this, submit_info.class);
                                         progressDialog.dismiss();
                                         startActivity(intent);

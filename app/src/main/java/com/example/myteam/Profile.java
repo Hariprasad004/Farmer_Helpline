@@ -53,7 +53,6 @@ public class Profile extends Fragment {
     private Button edit, req;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    //private StorageReference SReference;
     private String dec, userid;
     private ImageView profileimg;
     String farmlend;

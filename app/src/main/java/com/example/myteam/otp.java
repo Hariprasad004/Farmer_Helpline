@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -149,12 +150,20 @@ public class otp extends AppCompatActivity {
                             fStore.collection("User").document(user).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                    if(task.getResult().exists()){
-                                        Intent intent = new Intent(otp.this, menu.class);
-                                        progressDialog.dismiss();
-                                        startActivity(intent);
-                                        otp.this.finish();
-                                    }else{
+                                    try {
+                                        if (task.getResult().exists()) {
+                                            Intent intent = new Intent(otp.this, menu.class);
+                                            progressDialog.dismiss();
+                                            startActivity(intent);
+                                            otp.this.finish();
+                                        } else {
+                                            Intent intent = new Intent(otp.this, submit_info.class);
+                                            progressDialog.dismiss();
+                                            startActivity(intent);
+                                            otp.this.finish();
+                                        }
+                                    }
+                                    catch(Exception e) {
                                         Intent intent = new Intent(otp.this, submit_info.class);
                                         progressDialog.dismiss();
                                         startActivity(intent);

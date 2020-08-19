@@ -79,12 +79,20 @@ public class LoginActivity extends AppCompatActivity {
                                 fStore.collection("User").document(user).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                        if(task.getResult().exists()){
-                                            Intent intent = new Intent(LoginActivity.this, menu.class);
-                                            progressDialog.dismiss();
-                                            startActivity(intent);
-                                            LoginActivity.this.finish();
-                                        }else{
+                                        try {
+                                            if (task.getResult().exists()) {
+                                                Intent intent = new Intent(LoginActivity.this, menu.class);
+                                                progressDialog.dismiss();
+                                                startActivity(intent);
+                                                LoginActivity.this.finish();
+                                            } else {
+                                                Intent intent = new Intent(LoginActivity.this, submit_info.class);
+                                                progressDialog.dismiss();
+                                                startActivity(intent);
+                                                LoginActivity.this.finish();
+                                            }
+                                        }
+                                        catch (Exception e){
                                             Intent intent = new Intent(LoginActivity.this, submit_info.class);
                                             progressDialog.dismiss();
                                             startActivity(intent);

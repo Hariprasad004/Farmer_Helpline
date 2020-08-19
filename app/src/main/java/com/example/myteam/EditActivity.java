@@ -39,7 +39,8 @@ public class EditActivity extends AppCompatActivity {
     private EditText addr;
     private EditText age;
     private Button update;
-    private String userid, url = "https://firebasestorage.googleapis.com/v0/b/my-team-62402.appspot.com/o/profile.jpg?alt=media&token=472e5f25-48b7-4b4e-b601-df7b0a8c96ba";
+    private String userid, url;
+    private  boolean flag = false;
     ProgressDialog progressDialog;
 
     @Override
@@ -57,17 +58,12 @@ public class EditActivity extends AppCompatActivity {
         profileimg = findViewById(R.id.profileimage);
         userid = fAuth.getCurrentUser().getUid();
 
-        StorageReference profileRef = SReference.child("Users/"+userid+"/Profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-            Picasso.get().load(uri).into(profileimg);
-        });
-
-
-
         DocumentReference dr = fStore.collection("User").document(userid);
         dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String uri = documentSnapshot.getString("Image");
+                Picasso.get().load(uri).into(profileimg);
                 name.setText(documentSnapshot.getString("Name"));
                 phone.setText(documentSnapshot.getString("Phone_Number"));
                 age.setText(documentSnapshot.getString("Age"));
@@ -126,16 +122,14 @@ public class EditActivity extends AppCompatActivity {
             edited.put("Phone_Number", Phone);
             edited.put("Age", Age);
             edited.put("Address", Address);
-            edited.put("Image", url);
-            docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    progressDialog.dismiss();
-                    Toast.makeText(EditActivity.this, "Profile updated", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(EditActivity.this, menu.class);
-                    startActivity(intent);
-                    EditActivity.this.finish();;
-                }
+            if(flag)
+                edited.put("Image", url);
+            docRef.update(edited).addOnSuccessListener(aVoid -> {
+                progressDialog.dismiss();
+                Toast.makeText(EditActivity.this, "Profile updated", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(EditActivity.this, menu.class);
+                startActivity(intent);
+                EditActivity.this.finish();;
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
@@ -153,7 +147,6 @@ public class EditActivity extends AppCompatActivity {
         if(requestCode == 1000){
             if(resultCode == Activity.RESULT_OK){
                 Uri imageuri = data.getData();
-                //profileimg.setImageURI(imageuri);
                 uploadImage(imageuri);
             }
         }
@@ -176,6 +169,7 @@ public class EditActivity extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     Picasso.get().load(uri).into(profileimg);
                     url = uri.toString();
+                    flag = true;
                     progressDialog.dismiss();
                 });
                 Toast.makeText(EditActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();

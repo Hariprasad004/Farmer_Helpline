@@ -16,7 +16,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-private int SLEEP_TIMER=3;
+private int SLEEP_TIMER2 = 3;
+private  double SLEEP_TIMER1 =  0.25;
 private  FirebaseFirestore fStore;
 private FirebaseAuth fAuth;
 private  FirebaseUser user;
@@ -40,21 +41,28 @@ private  String userid;
     }
     private class LogoLauncher extends Thread{
         public void run() {
-            try {
-                 sleep(1000*SLEEP_TIMER);
-            }catch(InterruptedException e){
-                 e.printStackTrace();
-            }
             if (user!=null){
+                try {
+                    sleep((long) (1000*SLEEP_TIMER1));
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
                 userid = user.getUid();
                 fStore.collection("User").document(userid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if(task.getResult().exists()){
-                            Intent intent = new Intent(MainActivity.this, menu.class);
-                            startActivity(intent);
-                            MainActivity.this.finish();
-                        }else{
+                        try {
+                            if (task.getResult().exists()) {
+                                Intent intent = new Intent(MainActivity.this, menu.class);
+                                startActivity(intent);
+                                MainActivity.this.finish();
+                            } else {
+                                Intent intent = new Intent(MainActivity.this, submit_info.class);
+                                startActivity(intent);
+                                MainActivity.this.finish();
+                            }
+                        }
+                        catch (Exception e){
                             Intent intent = new Intent(MainActivity.this, submit_info.class);
                             startActivity(intent);
                             MainActivity.this.finish();
@@ -63,6 +71,11 @@ private  String userid;
                 });
             }
             else{
+                try {
+                    sleep(1000*SLEEP_TIMER2);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
                 Intent intent =new Intent(MainActivity.this, signActivity.class);
                 startActivity(intent);
                 MainActivity.this.finish();

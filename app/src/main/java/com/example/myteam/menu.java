@@ -1,6 +1,7 @@
 package com.example.myteam;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,19 @@ import androidx.appcompat.widget.Toolbar;
 public class menu extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private long backPressedTime;
+
+    @Override
+    public void onBackPressed() {
+        if(backPressedTime+2000>System.currentTimeMillis()){
+            super.onBackPressed();
+            return;
+        }
+        else{
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        backPressedTime = System.currentTimeMillis();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +48,7 @@ public class menu extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:farmerlender20@gmail.com")));
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
