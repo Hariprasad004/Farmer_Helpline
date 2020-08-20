@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#8EF368"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ListActivity">
@@ -10,7 +11,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1177C8"
         android:orientation="vertical">
 
         <RelativeLayout

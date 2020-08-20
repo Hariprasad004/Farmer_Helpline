@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A4EEF4"
+    android:background="#84DF89"
     tools:context=".Search">
 
 
@@ -23,7 +23,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textColor="#090909"
                 android:hint="Enter the id">
 
 

@@ -15,13 +15,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="165dp"
-        android:layout_height="120dp"
+        android:layout_width="140dp"
+        android:layout_height="95dp"
         android:contentDescription="@string/nav_header_desc"
         android:src="@drawable/image" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:text="Farmer Helpline"
         android:layout_marginTop="10dp"
         android:textSize="25dp"
