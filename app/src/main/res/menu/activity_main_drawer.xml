@@ -26,9 +26,6 @@
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_baseline_insert_emoticon_24"
             android:title="About" />
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_baseline_power_settings_new_24"
-            android:title="Logout" />
+
     </group>
 </menu>
