@@ -35,6 +35,15 @@ public class EditActivity extends AppCompatActivity {
     private StorageReference SReference;
     private ImageView profileimg;
     private EditText name;
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(EditActivity.this, menu.class);
+        startActivity(intent);
+        EditActivity.this.finish();
+    }
+
+
     private EditText phone;
     private EditText addr;
     private EditText age;

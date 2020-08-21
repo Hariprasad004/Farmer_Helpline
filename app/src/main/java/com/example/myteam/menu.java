@@ -26,17 +26,17 @@ public class menu extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private long backPressedTime;
 
-    @Override
-    public void onBackPressed() {
-        if(backPressedTime+2000>System.currentTimeMillis()){
-            super.onBackPressed();
-            return;
-        }
-        else{
-            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
-        }
-        backPressedTime = System.currentTimeMillis();
-    }
+  //  @Override
+   // public void onBackPressed() {
+     //   if(backPressedTime+2000>System.currentTimeMillis()){
+       //     super.onBackPressed();
+         //   return;
+        //}
+        //else{
+          //  Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        //}
+        //backPressedTime = System.currentTimeMillis();
+    //}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

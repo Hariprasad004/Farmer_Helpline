@@ -132,6 +132,7 @@ public class Profile extends Fragment {
         edit.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),EditActivity.class);
             startActivity(intent);
+            getActivity().finish();
         });
 
         req.setOnClickListener(v -> {

@@ -31,6 +31,7 @@ public class phone extends AppCompatActivity {
                         Intent intent = new Intent(phone.this, otp.class);
                         intent.putExtra("PhoneNo",pNo);
                         startActivity(intent);
+                        phone.this.finish();
                 }
                 else{
                     phonenum.setError("Phone number is not valid");

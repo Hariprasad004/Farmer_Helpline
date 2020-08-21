@@ -138,6 +138,7 @@ GoogleSignInClient mGoogleSignInClient;
             public void onClick(View v) {
                 Intent intent = new Intent(signActivity.this, phone.class);
                 startActivity(intent);
+                signActivity.this.finish();
             }
         });
         al_login.setOnClickListener(new View.OnClickListener() {
